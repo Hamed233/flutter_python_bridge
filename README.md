@@ -309,41 +309,6 @@ if (Platform.isIOS || Platform.isWeb) {
 }
 ```
 
-## How Flutter Python Bridge Works
-
-### Architecture Comparison with Chaquopy
-
-While Chaquopy is an excellent tool for running Python on Android, Flutter Python Bridge offers several architectural advantages:
-
-| Feature | Flutter Python Bridge | Chaquopy Directly |
-|---------|----------------------|-------------------|
-| Platforms | Android, iOS, macOS, Windows, Linux | Android only |
-| API Design | Flutter-centric, Dart-first approach | Java/Kotlin-centric |
-| Error Handling | Structured PythonResult objects | Exception-based |
-| Package Management | Cross-platform with fallbacks | Android-only |
-| High-level Components | Built-in ML, Data Analysis, Image Processing | Basic Python execution |
-| File Path Handling | Cross-platform path normalization | Manual path handling |
-| UI Integration | Flutter widget integration | Manual UI updates |
-
-### Implementation Details
-
-Flutter Python Bridge uses a layered architecture:
-
-1. **Platform Layer**: Platform-specific implementations
-   - Android: Leverages Chaquopy through method channels
-   - iOS/Desktop: Uses system Python with process management
-
-2. **Bridge Layer**: Unified API that abstracts platform differences
-   - Handles code execution, script management, and package installation
-   - Normalizes paths and file operations across platforms
-
-3. **Component Layer**: High-level ready-to-use components
-   - ImageProcessor: OpenCV-based image processing
-   - DataAnalyzer: Pandas/Matplotlib data analysis
-   - MLProcessor: Scikit-learn/TensorFlow machine learning
-
-This layered approach allows you to work at the level of abstraction that suits your needs, from low-level Python code execution to high-level ML model training.
-
 ## Available Image Operations
 
 The `ImageProcessor` class supports various image operations:
