@@ -1,8 +1,6 @@
 /// Web stub for dart:io Platform
 /// This provides stub implementations of the Platform class for web
 
-import 'dart:convert';
-
 class Platform {
   /// Returns false for web
   static bool get isAndroid => false;
