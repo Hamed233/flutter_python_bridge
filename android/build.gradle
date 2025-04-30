@@ -1,0 +1,68 @@
+group 'com.example.flutter_python_bridge'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://chaquo.com/maven" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.0'
+        classpath "com.chaquo.python:gradle:15.0.1"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.chaquo.python'
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://chaquo.com/maven" }
+    }
+}
+
+android {
+    namespace 'com.example.flutter_python_bridge'
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 33
+        
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+        
+        python {
+            version "3.8"
+            
+            pip {
+                // Add default packages here
+                install "numpy"
+                install "pandas"
+                install "matplotlib"
+                install "seaborn"
+                install "scikit-learn"
+                install "nltk"
+                install "opencv-python"
+                install "pillow"
+            }
+            
+            // Include standard library modules
+            pyc {
+                src false
+                pip false
+            }
+        }
+    }
+    
+    sourceSets {
+        main {
+            python.srcDir "src/main/python"
+        }
+    }
+}
