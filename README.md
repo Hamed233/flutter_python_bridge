@@ -1,6 +1,6 @@
 # Flutter Python Bridge
 
-<img src="/images/flutter_python_bridge.png" alt="flutter_python_bridge" width="800" style="max-width: 100%;">
+<img src="flutter_python_bridge.png" alt="flutter_python_bridge" width="800" style="max-width: 100%;">
 
 [![pub package](https://img.shields.io/pub/v/flutter_python_bridge.svg)](https://pub.dev/packages/flutter_python_bridge)
 
